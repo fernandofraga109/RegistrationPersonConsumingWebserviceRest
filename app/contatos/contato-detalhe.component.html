@@ -1,0 +1,34 @@
+<div class="container">
+
+	<h2>Salvar Pessoa</h2>
+
+	<form (ngSubmit)="onSubmit()" #contatoForm="ngForm" novalidate>
+		<div [ngClass]="getFormGroupClass(nome.valid, nome.pristine)">
+			<label for="nome" class="form-control-label">Nome</label>
+			<input type="text" placeholder="Insira o nome"
+				[ngClass]="getFormControlClass(nome.valid, nome.pristine)"
+				required
+				#nome="ngModel"
+				name="nome"
+				[(ngModel)]="contato.nome"/>
+			<div class="form-control-feedback" [hidden]="nome.valid || nome.pristine">O campo nome é obrigatório</div>
+		</div>
+
+		<div [ngClass]="getFormGroupClass(sexo.valid, sexo.pristine)">
+			<label for="sexo" class="form-control-label">sexo</label>
+			<input type="sexo" placeholder="Insira o sexo"
+				[ngClass]="getFormControlClass(sexo.valid, sexo.pristine)"
+				required
+				#sexo="ngModel"
+				name="sexo"
+				[(ngModel)]="contato.sexo"/>
+			<div class="form-control-feedback" [hidden]="sexo.valid || sexo.pristine">O campo sexo é obrigatório</div>
+		</div>
+
+
+
+		<button type="submit" class="btn btn-success" [disabled]="!contatoForm.form.valid">Salvar</button>
+		<a class="btn btn-secondary" (click)="goBack()">Voltar</a>
+	</form>
+
+</div>

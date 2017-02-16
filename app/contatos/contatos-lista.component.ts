@@ -31,7 +31,7 @@ export class ContatosListaComponent implements OnInit {
         
         let  cont = []; 
         for(let i = 0; i < json.length; i++){
-            let contato = new Contato(json[0].codigo, json[i].nome, json[i].sexo);
+            let contato = new Contato(json[i].codigo, json[i].nome, json[i].sexo);
             cont.push(contato);
         }
         this.contatos = cont;
@@ -55,6 +55,7 @@ export class ContatosListaComponent implements OnInit {
      * Deleta um contato
      */
     onDelete(contato: Contato): void {
+         console.log(contato, "deletar");   
         // Chama o serviço para confirmar a remoção do contato
         this.dialogService.confirm('Deseja deletar o contato ' + contato.nome + '?')
             .then((canDelete: boolean) => {
@@ -69,7 +70,8 @@ export class ContatosListaComponent implements OnInit {
                             this.mostrarMensagem({
                                 tipo: 'success',
                                 texto: 'Contato deletado!'
-                            });                            
+                            });                           
+                            this.ngOnInit();
                         }).catch(error => {
                             console.log(error);
                             this.mostrarMensagem({

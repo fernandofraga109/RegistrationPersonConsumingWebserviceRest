@@ -26,7 +26,7 @@
 
 				<tbody>
 					<tr *ngIf="contatos.length == 0">
-						<td colspan="4" align="center">Nenhum pessoa cadastrada</td>
+						<td colspan="4" align="center">Nenhuma pessoa cadastrada</td>
 					</tr>
 					<tr *ngFor="let c of contatos" [routerLink]="['/contato/save', c.codigo]">
 						<th>{{ c.nome }}</th>

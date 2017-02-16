@@ -16,7 +16,7 @@
 
 		<div [ngClass]="getFormGroupClass(sexo.valid, sexo.pristine)">
 			<label for="sexo" class="form-control-label">sexo</label>
-			<input type="sexo" placeholder="Insira o sexo"
+			<input type="sexo" placeholder="Insira o sexo" maxlength="1"
 				[ngClass]="getFormControlClass(sexo.valid, sexo.pristine)"
 				required
 				#sexo="ngModel"
